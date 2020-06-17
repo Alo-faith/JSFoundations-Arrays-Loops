@@ -9,9 +9,17 @@
  * getOdds([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [11, 35, 601, 777, 999]
  */
 function getOdds(numbers) {
-  // Your code here
+  let array1 = numbers;
+  let array2 = [];
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] % 2 !== 0) {
+      array2.push(array1[i]);
+    }
+  }
+  return array2;
 }
-
+console.log(getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+console.log(getOdds([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 /**
  * getEvens(numbers):
  * - receives an array of numbers called `numbers`
@@ -23,9 +31,18 @@ function getOdds(numbers) {
  * getEvens([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [52, 14, 56, 888]
  */
 function getEvens(numbers) {
-  // Your code here
+  let array1 = numbers;
+  let array2 = [];
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] % 2 === 0) {
+      array2.push(array1[i]);
+    }
+  }
+  return array2;
 }
 
+console.log(getEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+console.log(getEvens([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 /**
  * getDuplicateCount(x, numbers):
  * - receives a number `x`, and an array of numbers called `numbers`
@@ -36,9 +53,21 @@ function getEvens(numbers) {
  * getDuplicateCount(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52]) -> 3
  */
 function getDuplicateCount(x, numbers) {
-  // Your code here
+  let array1 = numbers;
+  let counter = 0;
+
+  for (let i = 0; i < array1.length; i++) {
+    if (x === array1[i]) counter++;
+  }
+  return counter;
 }
 
+console.log(
+  getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13])
+);
+console.log(
+  getDuplicateCount(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52])
+);
 /**
  * youGottaCalmDown(s):
  * - receives a string `s`
@@ -54,7 +83,16 @@ function getDuplicateCount(x, numbers) {
  * - Use string method .endsWith()
  */
 function youGottaCalmDown(s) {
-  // Your code here
+  let word = "";
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] == "!") {
+      word = word + s[i];
+      i = s.length;
+    } else word = word + s[i];
+  }
+  return word;
 }
-
+console.log(youGottaCalmDown("HI!!!!!!!!!!"));
+console.log(youGottaCalmDown("Taylor Schwifting!!!!!!!!!!!"));
+console.log(youGottaCalmDown("Hellooooo"));
 module.exports = { getOdds, getEvens, getDuplicateCount, youGottaCalmDown };
